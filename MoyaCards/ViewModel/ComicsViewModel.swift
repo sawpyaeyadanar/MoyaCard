@@ -8,6 +8,7 @@
 import Foundation
 import Moya
 import RxSwift
+import RxRelay
 
 class ComicsViewModel {
     
@@ -19,7 +20,7 @@ class ComicsViewModel {
     }
     
     var comics = BehaviorSubject(value: [Comic]())
-    var state = BehaviorSubject<State>(value: .idle)
+    var state = BehaviorRelay<State>(value: .idle)
     private let provider : MoyaProvider<Marvel>
     
     init(provider: MoyaProvider<Marvel> = MoyaProvider<Marvel>()) {
@@ -27,7 +28,7 @@ class ComicsViewModel {
     }
     
     func fetchComics() {
-        state.onNext(.loading)
+        state.accept(.loading)
         provider.request(.comics) { [weak self] result in
             guard let self = self else { return }
             
@@ -37,12 +38,12 @@ class ComicsViewModel {
                     let filterResponse = try response.filterSuccessfulStatusCodes()
                     let data = try filterResponse.map(MarvelResponse<Comic>.self).data.results
                     self.comics.on(.next(data))
-                    state.onNext(.idle)
+                    state.accept(.idle)
                 } catch (let error)  {
-                    state.onNext(.error(error))
+                    state.accept(.error(error))
                 }
             case .failure (let error):
-                state.onNext(.error(error))
+                state.accept(.error(error))
             }
         }
     }

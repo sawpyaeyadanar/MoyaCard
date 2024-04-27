@@ -30,12 +30,34 @@ class ComicsViewController: UIViewController {
     }
     
     private func bindLoading() {
+        viewModel.state.subscribe(onNext: { state in
+            switch state {
+            case .idle:
+                self.viewMessage.isHidden = true
+                self.tblComics.isHidden = false
+            case .loading:
+                self.tblComics.isHidden = true
+                self.viewMessage.isHidden = false
+                self.lblMessage.text = "Getting comics ..."
+                self.imgMeessage.image = #imageLiteral(resourceName: "Loading")
+            case .error(_):
+                self.tblComics.isHidden = true
+                self.viewMessage.isHidden = false
+                self.lblMessage.text = """
+                                    Something went wrong!
+                                    Try again later.
+                                  """
+                self.imgMeessage.image = #imageLiteral(resourceName: "Error")
+            }
+        })
+        .disposed(by: bag)
+        
+        /*
         viewModel.state.asObservable().subscribe { value in
             switch value {
                 
             case .next(let state):
                 switch state {
-                    
                 case .idle:
                     self.viewMessage.isHidden = true
                     self.tblComics.isHidden = false
@@ -52,12 +74,14 @@ class ComicsViewController: UIViewController {
                                         Try again later.
                                       """
                     self.imgMeessage.image = #imageLiteral(resourceName: "Error")
+                
                 }
                 
             case .error(_): break
             case .completed: break
             }
         }.disposed(by: bag)
+        */
     }
     
     
