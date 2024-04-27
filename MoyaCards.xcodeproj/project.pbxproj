@@ -12,6 +12,8 @@
 		49108C312BDB8B5000EE07E9 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 49108C302BDB8B5000EE07E9 /* Base */; };
 		49108C332BDB8B5100EE07E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49108C322BDB8B5100EE07E9 /* Assets.xcassets */; };
 		49108C362BDB8B5100EE07E9 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 49108C352BDB8B5100EE07E9 /* Base */; };
+		494DE0DB2BDCD0E800679F75 /* ComicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DE0DA2BDCD0E800679F75 /* ComicsViewModel.swift */; };
+		494DE0DE2BDCD55A00679F75 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 494DE0DD2BDCD55A00679F75 /* RxCocoa */; };
 		49B25B902BDB8E04006045B2 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 49B25B8F2BDB8E04006045B2 /* CombineMoya */; };
 		49B25B922BDB8E04006045B2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 49B25B912BDB8E04006045B2 /* Moya */; };
 		49B25B942BDB8E04006045B2 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 49B25B932BDB8E04006045B2 /* ReactiveMoya */; };
@@ -38,6 +40,7 @@
 		49108C322BDB8B5100EE07E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49108C352BDB8B5100EE07E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49108C372BDB8B5100EE07E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494DE0DA2BDCD0E800679F75 /* ComicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsViewModel.swift; sourceTree = "<group>"; };
 		49B25B9A2BDB8E88006045B2 /* ComicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
 		49B25B9C2BDB8E94006045B2 /* CardViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewViewController.swift; sourceTree = "<group>"; };
 		49B25B9E2BDB900F006045B2 /* ComicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicTableViewCell.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494DE0DE2BDCD55A00679F75 /* RxCocoa in Frameworks */,
 				49B25B922BDB8E04006045B2 /* Moya in Frameworks */,
 				49B25B902BDB8E04006045B2 /* CombineMoya in Frameworks */,
 				49B25B962BDB8E04006045B2 /* RxMoya in Frameworks */,
@@ -87,6 +91,7 @@
 		49108C282BDB8B5000EE07E9 /* MoyaCards */ = {
 			isa = PBXGroup;
 			children = (
+				494DE0D92BDCD0D600679F75 /* ViewModel */,
 				49B25BAB2BDB93A2006045B2 /* Common */,
 				49B25BA72BDB90F7006045B2 /* Helpers */,
 				494DE0D42BDCC9EC00679F75 /* View */,
@@ -131,6 +136,14 @@
 				49B25BA22BDB907E006045B2 /* UploadResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		494DE0D92BDCD0D600679F75 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				494DE0DA2BDCD0E800679F75 /* ComicsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49B25BA72BDB90F7006045B2 /* Helpers */ = {
@@ -179,6 +192,7 @@
 				49B25B932BDB8E04006045B2 /* ReactiveMoya */,
 				49B25B952BDB8E04006045B2 /* RxMoya */,
 				49B25B982BDB8E40006045B2 /* Kingfisher */,
+				494DE0DD2BDCD55A00679F75 /* RxCocoa */,
 			);
 			productName = MoyaCards;
 			productReference = 49108C262BDB8B5000EE07E9 /* MoyaCards.app */;
@@ -211,6 +225,7 @@
 			packageReferences = (
 				49B25B8E2BDB8E04006045B2 /* XCRemoteSwiftPackageReference "Moya" */,
 				49B25B972BDB8E40006045B2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				494DE0DC2BDCD55A00679F75 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 49108C272BDB8B5000EE07E9 /* Products */;
 			projectDirPath = "";
@@ -249,6 +264,7 @@
 				49B25BA82BDB90F7006045B2 /* Date+ISO8601.swift in Sources */,
 				49108C2A2BDB8B5000EE07E9 /* AppDelegate.swift in Sources */,
 				49B25B9D2BDB8E94006045B2 /* CardViewViewController.swift in Sources */,
+				494DE0DB2BDCD0E800679F75 /* ComicsViewModel.swift in Sources */,
 				49B25B9B2BDB8E88006045B2 /* ComicsViewController.swift in Sources */,
 				49B25BB02BDB9913006045B2 /* CodableResponse.swift in Sources */,
 				49108C2C2BDB8B5000EE07E9 /* SceneDelegate.swift in Sources */,
@@ -478,6 +494,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		494DE0DC2BDCD55A00679F75 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.0;
+			};
+		};
 		49B25B8E2BDB8E04006045B2 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -497,6 +521,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		494DE0DD2BDCD55A00679F75 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 494DE0DC2BDCD55A00679F75 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
 		49B25B8F2BDB8E04006045B2 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 49B25B8E2BDB8E04006045B2 /* XCRemoteSwiftPackageReference "Moya" */;
