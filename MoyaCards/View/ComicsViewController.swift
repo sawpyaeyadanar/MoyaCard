@@ -87,7 +87,7 @@ class ComicsViewController: UIViewController {
     
     func bindTableView() {
         
-        viewModel.comics.bind(to: tblComics.rx.items(cellIdentifier: ComicCell.reuseIdentifier, cellType: ComicCell.self)) { row, item, cell in
+        viewModel.comicsObservable.bind(to: tblComics.rx.items(cellIdentifier: ComicCell.reuseIdentifier, cellType: ComicCell.self)) { row, item, cell in
             cell.configureWith(item)
         }.disposed(by: bag)
         

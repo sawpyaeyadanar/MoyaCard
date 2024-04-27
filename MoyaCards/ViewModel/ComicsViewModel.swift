@@ -19,7 +19,10 @@ class ComicsViewModel {
         case error(Error)
     }
     
-    var comics = BehaviorSubject(value: [Comic]())
+    private var comics = BehaviorSubject(value: [Comic]())
+    public var comicsObservable: Observable<[Comic]> {
+        comics.asObservable()
+    }
     var state = BehaviorRelay<State>(value: .idle)
     private let provider : MoyaProvider<Marvel>
     
